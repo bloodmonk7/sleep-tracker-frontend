@@ -5,7 +5,7 @@ import { CSSTransition } from 'react-transition-group';
 function HomeScreen() {
   const [showText, setShowText] = useState(false);
 
-  // Use useEffect to trigger the text animation after a delay (e.g., 1 second)
+  // animation for delay
   useEffect(() => {
     setTimeout(() => {
       setShowText(true);

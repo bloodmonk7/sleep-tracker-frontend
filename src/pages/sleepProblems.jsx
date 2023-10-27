@@ -10,16 +10,16 @@ function SleepProblems() {
     sleepThroughNight: false,
     wakeUpOnTime: false,
   });
-  const [userId, setUserId] = useState(''); // State to store the user's ID
+  const [userId, setUserId] = useState('');
   const { username } = useUsernameContext()
   useEffect(() => {
     // Fetch user data to get the user's ID when the component mounts
-    getUserData(username) // Replace 'username' with the actual username
+    getUserData(username)
       .then((userData) => {
-        setUserId(userData._id); // Assuming the user ID is stored in the '_id' field
+        setUserId(userData._id);
       })
       .catch((error) => {
-        // Handle the error, e.g., show an error message
+        // Handle the error
         console.error(error);
       });
   }, [username]);
@@ -33,12 +33,12 @@ function SleepProblems() {
 
   const saveChanges = async () => {
     if (!userId) {
-      // User ID is not available, handle accordingly
+      // If User ID is not available
       console.error('User ID not available.');
       return;
     }
 
-    // Prepare the sleep data with the selected changes and user ID
+    // Data for update API
     const sleepData = {
       userId,
       sleepProblems: selectedChanges,
@@ -47,10 +47,9 @@ function SleepProblems() {
     try {
       // Send the updated sleep data to the server
       await addSleepData(sleepData);
-      navigate('/sleepscore'); // Redirect to the next page (replace with the desired destination)
+      navigate('/sleepscore');
     } catch (error) {
       console.error(error);
-      // Handle the error, e.g., show an error message
     }
   };
 

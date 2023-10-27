@@ -5,12 +5,11 @@ const API_BASE_URL = 'https://sleep-tracker-api.onrender.com'; // Your backend U
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
-    'Content-Type': 'application/json', // Set the content type as needed
-    // You can also add any headers you need here, such as authentication headers
+    'Content-Type': 'application/json',
   },
 });
 
-// Define your API endpoints here
+// API endpoints
 
 export const createUser = async (userData) => {
   try {
